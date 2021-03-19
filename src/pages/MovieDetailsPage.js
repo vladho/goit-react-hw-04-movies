@@ -26,8 +26,8 @@ class MovieDetailsPage extends Component {
   render() {
     const image = this.state.image
     // console.log(image.poster_path)
-    console.log(image)
-    console.log(this.props.match)
+    // console.log(image)
+    // console.log(this.props.match)
     const path = this.props.match.path
     const url = this.props.match.url
     const popularity = Number(image.vote_average * 10)
@@ -37,7 +37,7 @@ class MovieDetailsPage extends Component {
     return (
       <>
         <div className={style.page}>
-          <img src={`https://image.tmdb.org/t/p/w500/${image.poster_path}`} />
+          <img src={`https://image.tmdb.org/t/p/w400/${image.poster_path}`} />
           <div className={style.views}>
             <h2>{image.title}</h2>
             <p>{`user score ${popularity}%`}</p>

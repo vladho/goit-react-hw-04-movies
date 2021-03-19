@@ -1,34 +1,24 @@
-import { Route, NavLink, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import Movies from "./pages/Movies";
-import NotFoundPage from "./pages/NotFoundPage";
-import MovieDetailsPage from "./pages/MovieDetailsPage";
+import { Route, Switch } from "react-router-dom"
+import Home from "./pages/Home"
+import Movies from "./pages/Movies"
+import NotFoundPage from "./pages/NotFoundPage"
+import MovieDetailsPage from "./pages/MovieDetailsPage"
+import routes from "./routes"
 
-import "./App.css";
+import "./App.css"
+import AppBar from "./Component/AppBar/AppBar"
 function App() {
   return (
     <>
-      <ul>
-        <li>
-          <NavLink exact to="/">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/Movies">Movies</NavLink>
-        </li>
-      </ul>
+      <AppBar />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/movies" component={Movies} />
-        <Route path="/movies/:movieId" component={MovieDetailsPage} />
-        {/* <Route path="/movies/:" component={Movies} />
-        <Route path="/movies" component={Movies} />
-        <Route path="/movies" component={Movies} /> */}
+        <Route exact path={routes.home} component={Home} />
+        <Route exact path={routes.movies} component={Movies} />
+        <Route path={routes.moviesDetails} component={MovieDetailsPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

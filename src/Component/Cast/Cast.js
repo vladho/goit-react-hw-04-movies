@@ -9,7 +9,7 @@ class Cast extends Component {
   }
   render() {
     const cast = this.state.cast
-    console.log(cast)
+    // console.log(cast)
     return <ul>{cast !== null && cast.map((el) => <CastItem {...el} />)}</ul>
   }
 }
