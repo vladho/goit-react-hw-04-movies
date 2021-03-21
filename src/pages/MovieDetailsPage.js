@@ -1,11 +1,14 @@
-import React, { Component } from "react"
-import { Route } from "react-router"
-import { Link, NavLink } from "react-router-dom"
-import Cast from "../Component/Cast/Cast"
-import Reviews from "../Component/Reviews/Reviews"
-import { fetchMoviesDetailsApi, fetchMoviesImageApi } from "../services/movies-api"
-import style from "./MovieDetailsPage.module.css"
-import routes from "../routes"
+import React, { Component } from "react";
+import { Route } from "react-router";
+import { Link, NavLink } from "react-router-dom";
+import Cast from "../Component/Cast/Cast";
+import Reviews from "../Component/Reviews/Reviews";
+import {
+  fetchMoviesDetailsApi,
+  fetchMoviesImageApi,
+} from "../services/movies-api";
+import style from "./MovieDetailsPage.module.css";
+import routes from "../routes";
 
 class MovieDetailsPage extends Component {
   state = {
@@ -14,36 +17,39 @@ class MovieDetailsPage extends Component {
       vote_average: 1,
       genres: [1, 2],
     },
-  }
-  handleGoBack() {
-    // console.log("sfd")
-    this.props.history.push(this.props.location?.state?.from || routes.home)
-  }
+  };
+  handleGoBack = () => {
+    console.log(this.props.search);
+    this.props.history.push(this.props.location?.state?.from || routes.home);
+  };
 
   componentDidMount() {
-    const moveiId = this.props.match.params
+    const moveiId = this.props.match.params;
     // console.log(moveiId);
     // console.log(this.props.match.params);
     // const tezt = { moveiId };
     // fetchMoviesDetailsApi(moveiId).then((response) => console.log(response));
-    fetchMoviesDetailsApi(moveiId).then((response) => this.setState({ image: response.data }))
+    fetchMoviesDetailsApi(moveiId).then((response) =>
+      this.setState({ image: response.data })
+    );
   }
   render() {
-    const image = this.state.image
+    const image = this.state.image;
     // console.log(image.poster_path)
     // console.log(image)
     // console.log(this.props.match)
-    const path = this.props.match.path
-    const url = this.props.match.url
-    const popularity = Number(image.vote_average * 10)
-    const genres = image.genres.map((el) => el.name + " ")
+    const path = this.props.match.path;
+    const url = this.props.match.url;
+    const popularity = Number(image.vote_average * 10);
+    const genres = image.genres.map((el) => el.name + " ");
     // console.log(genres)
     // console.log(this.state.image.map((el) => el.title));
     return (
       <>
-        <button type="button" onClick={() => this.handleGoBack()}>
+        <button type="button" onClick={this.handleGoBack}>
           вернуться назад
         </button>
+
         <div className={style.page}>
           <img src={`https://image.tmdb.org/t/p/w400/${image.poster_path}`} />
           <div className={style.views}>
@@ -55,6 +61,7 @@ class MovieDetailsPage extends Component {
             <p>{genres}</p>
           </div>
         </div>
+
         <div>
           <p>additional informtion</p>
           <ul>
@@ -65,12 +72,18 @@ class MovieDetailsPage extends Component {
               <NavLink to={`${url}/reviews`}>Reviews</NavLink>
             </li>
           </ul>
-          <Route path={`${path}/cast`} render={() => <Cast moveiId={this.props.match.params} />} />
-          <Route path={`${path}/reviews`} render={() => <Reviews moveiId={this.props.match.params} />} />
+          <Route
+            path={`${path}/cast`}
+            render={() => <Cast moveiId={this.props.match.params} />}
+          />
+          <Route
+            path={`${path}/reviews`}
+            render={() => <Reviews moveiId={this.props.match.params} />}
+          />
         </div>
       </>
-    )
+    );
   }
 }
 
-export default MovieDetailsPage
+export default MovieDetailsPage;
