@@ -3,9 +3,10 @@
 // }
 
 import React, { Component } from "react"
-import Trending from "../Component/Trending/Trending"
+// import Trending from "../Component/Trending/Trending"
 import { fetchMoviesTrendingApi } from "../services/movies-api"
 import { Link } from "react-router-dom"
+import MovieList from "../Component/MovieList/MovieList"
 
 class Home extends Component {
   state = {
@@ -35,16 +36,11 @@ class Home extends Component {
     // console.log(this.props.match.url);
     // this.fetchMovies()
     return (
-      //   <h2 onClick={this.fetchMovies}>Home</h2>
-      // <ul>{this.state.movies !== null && this.state.movies.map((el) => <Trending el={el} key={el.id} />)}</ul>
-      <ul>
-        {this.state.movies !== null &&
-          this.state.movies.map((el) => (
-            <li key={el.id}>
-              <Link to={`Movies/${el.id}`}>{el.title} </Link>
-            </li>
-          ))}
-      </ul>
+      <>
+        <h2> Trending today</h2>
+        {/* // <ul>{this.state.movies !== null && this.state.movies.map((el) => <Trending el={el} key={el.id} />)}</ul> */}
+        {this.state.movies !== null && <MovieList movies={this.state.movies} />}
+      </>
     )
   }
 }

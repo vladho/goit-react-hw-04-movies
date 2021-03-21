@@ -1,15 +1,15 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
-
+import style from "./Navigation.module.css"
 const Navigation = () => {
   return (
-    <ul>
+    <ul className={style.list}>
       <li>
         <NavLink exact to="/">
           Home
         </NavLink>
       </li>
-      <li>
+      <li className={style.item}>
         <NavLink to="/Movies">Movies</NavLink>
       </li>
     </ul>

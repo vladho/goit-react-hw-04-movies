@@ -26,6 +26,11 @@ const fetchMoviesReviewsApi = ({ movieId }) => {
 }
 export { fetchMoviesReviewsApi }
 
+const fetchMoviesSearchApi = ({}) => {
+  return axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=1&include_adult=false`)
+}
+export { fetchMoviesSearchApi }
+
 // https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
 
 // const fetchMoviesImageApi = () => {

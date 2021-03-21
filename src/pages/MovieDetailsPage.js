@@ -5,6 +5,7 @@ import Cast from "../Component/Cast/Cast"
 import Reviews from "../Component/Reviews/Reviews"
 import { fetchMoviesDetailsApi, fetchMoviesImageApi } from "../services/movies-api"
 import style from "./MovieDetailsPage.module.css"
+import routes from "../routes"
 
 class MovieDetailsPage extends Component {
   state = {
@@ -13,6 +14,10 @@ class MovieDetailsPage extends Component {
       vote_average: 1,
       genres: [1, 2],
     },
+  }
+  handleGoBack() {
+    // console.log("sfd")
+    this.props.history.push(this.props.location?.state?.from || routes.home)
   }
 
   componentDidMount() {
@@ -36,6 +41,9 @@ class MovieDetailsPage extends Component {
     // console.log(this.state.image.map((el) => el.title));
     return (
       <>
+        <button type="button" onClick={() => this.handleGoBack()}>
+          вернуться назад
+        </button>
         <div className={style.page}>
           <img src={`https://image.tmdb.org/t/p/w400/${image.poster_path}`} />
           <div className={style.views}>
