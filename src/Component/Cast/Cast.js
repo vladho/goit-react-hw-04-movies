@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { fetchMoviesCreditApi } from "../../services/movies-api"
 import CastItem from "./CastItem/CastItem"
+import { withRouter } from "react-router-dom"
 
 class Cast extends Component {
   state = { cast: null }
@@ -10,8 +11,8 @@ class Cast extends Component {
   render() {
     const cast = this.state.cast
     // console.log(cast)
-    return <ul>{cast !== null && cast.map((el) => <CastItem {...el} />)}</ul>
+    return <ul>{cast !== null && cast.map((el) => <CastItem {...el} key={el.id} />)}</ul>
   }
 }
 
-export default Cast
+export default withRouter(Cast)

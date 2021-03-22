@@ -12,7 +12,7 @@ class Reviews extends Component {
   render() {
     const reviews = this.state.reviews
     // console.log(this.state.reviews)
-    return <ul>{reviews !== null && reviews.map((el) => <ReviewsItem {...el} />)}</ul>
+    return <ul>{reviews !== null && reviews.map((el) => <ReviewsItem {...el} key={el.id} />)}</ul>
   }
 }
 

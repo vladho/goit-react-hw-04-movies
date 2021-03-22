@@ -5,7 +5,7 @@
 import React, { Component } from "react"
 // import Trending from "../Component/Trending/Trending"
 import { fetchMoviesTrendingApi } from "../services/movies-api"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import MovieList from "../Component/MovieList/MovieList"
 
 class Home extends Component {
