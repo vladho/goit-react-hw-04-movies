@@ -66,7 +66,8 @@ class MovieDetailsPage extends Component {
               <NavLink
                 to={{
                   pathname: `${url}/cast`,
-                  state: { from: this.props.location.state.from },
+                  // state: { from: this.props.location.state.from },
+                  state: { from: this.props.location?.state?.from || routes.home },
                 }}
               >
                 Cast
@@ -76,7 +77,8 @@ class MovieDetailsPage extends Component {
               <NavLink
                 to={{
                   pathname: `${url}/reviews`,
-                  state: { from: this.props.location.state.from },
+                  // state: { from: this.props.location.state.from },
+                  state: { from: this.props.location?.state?.from || routes.home },
                 }}
               >
                 Reviews
