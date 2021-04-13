@@ -10,8 +10,6 @@ const fetchMoviesTrendingApi = () => {
 
 export { fetchMoviesTrendingApi };
 
-// const movieId = 630004;
-
 const fetchMoviesDetailsApi = ({ movieId }) => {
   return axios.get(
     `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`
@@ -36,20 +34,9 @@ const fetchMoviesReviewsApi = ({ movieId }) => {
 export { fetchMoviesReviewsApi };
 
 const fetchMoviesSearchApi = (query = "cat") => {
-  // console.log(query);
   return axios.get(
     `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=1&include_adult=false&query=${query}`
   );
 };
 
 export { fetchMoviesSearchApi };
-
-// https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=<<api_key>>&language=en-US&page=1
-
-// const fetchMoviesImageApi = () => {
-//   return axios.get(
-//     `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${apiKey}&language=en-US`
-//   );
-// };
-
-// export { fetchMoviesImageApi };

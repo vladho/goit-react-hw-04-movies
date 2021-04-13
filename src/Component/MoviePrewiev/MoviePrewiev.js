@@ -1,6 +1,5 @@
-import React from "react"
-import style from "./MoviePrewiev.module.css"
-// import {withRouter} from "react-router-dom"
+import React from "react";
+import style from "./MoviePrewiev.module.css";
 
 const MoviePrewiev = ({ poster_path, title }) => {
   return (
@@ -10,7 +9,7 @@ const MoviePrewiev = ({ poster_path, title }) => {
       </div>
       <div className={style.title}>{title}</div>
     </div>
-  )
-}
+  );
+};
 
-export default MoviePrewiev
+export default MoviePrewiev;

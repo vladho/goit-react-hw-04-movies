@@ -1,18 +1,22 @@
-import React, { Suspense, lazy } from "react"
-import { Route, Switch } from "react-router-dom"
-// import Home from "./pages/Home"
-// import Movies from "./pages/Movies"
-// import NotFoundPage from "./pages/NotFoundPage"
-// import MovieDetailsPage from "./pages/MovieDetailsPage"
-import routes from "./routes"
+import React, { Suspense, lazy } from "react";
+import { Route, Switch } from "react-router-dom";
+import routes from "./routes";
 
-import "./App.css"
-import AppBar from "./Component/AppBar/AppBar"
+import "./App.css";
+import AppBar from "./Component/AppBar/AppBar";
 
-const Home = lazy(() => import("./pages/Home" /* webpackChunkName: "home" */))
-const Movies = lazy(() => import("./pages/Movies" /* webpackChunkName: "movies" */))
-const NotFoundPage = lazy(() => import("./pages/NotFoundPage" /* webpackChunkName: "not-found-page" */))
-const MovieDetailsPage = lazy(() => import("./pages/MovieDetailsPage" /* webpackChunkName: "movies-details-page" */))
+const Home = lazy(() => import("./pages/Home" /* webpackChunkName: "home" */));
+const Movies = lazy(() =>
+  import("./pages/Movies" /* webpackChunkName: "movies" */)
+);
+const NotFoundPage = lazy(() =>
+  import("./pages/NotFoundPage" /* webpackChunkName: "not-found-page" */)
+);
+const MovieDetailsPage = lazy(() =>
+  import(
+    "./pages/MovieDetailsPage" /* webpackChunkName: "movies-details-page" */
+  )
+);
 
 function App() {
   return (
@@ -27,7 +31,7 @@ function App() {
         </Switch>
       </Suspense>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
