@@ -8,15 +8,11 @@ const fetchMoviesTrendingApi = () => {
   );
 };
 
-export { fetchMoviesTrendingApi };
-
 const fetchMoviesDetailsApi = ({ movieId }) => {
   return axios.get(
     `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`
   );
 };
-
-export { fetchMoviesDetailsApi };
 
 const fetchMoviesCreditApi = ({ movieId }) => {
   return axios.get(
@@ -24,14 +20,11 @@ const fetchMoviesCreditApi = ({ movieId }) => {
   );
 };
 
-export { fetchMoviesCreditApi };
-
 const fetchMoviesReviewsApi = ({ movieId }) => {
   return axios.get(
     `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${apiKey}&language=en-US`
   );
 };
-export { fetchMoviesReviewsApi };
 
 const fetchMoviesSearchApi = (query = "cat") => {
   return axios.get(
@@ -39,4 +32,10 @@ const fetchMoviesSearchApi = (query = "cat") => {
   );
 };
 
-export { fetchMoviesSearchApi };
+export {
+  fetchMoviesSearchApi,
+  fetchMoviesReviewsApi,
+  fetchMoviesCreditApi,
+  fetchMoviesDetailsApi,
+  fetchMoviesTrendingApi,
+};

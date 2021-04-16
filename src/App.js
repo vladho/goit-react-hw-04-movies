@@ -1,22 +1,9 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
-import routes from "./routes";
 
+import { appRoutes } from "./routes/appRoutes";
 import "./App.css";
 import AppBar from "./Component/AppBar/AppBar";
-
-const Home = lazy(() => import("./pages/Home" /* webpackChunkName: "home" */));
-const Movies = lazy(() =>
-  import("./pages/Movies" /* webpackChunkName: "movies" */)
-);
-const NotFoundPage = lazy(() =>
-  import("./pages/NotFoundPage" /* webpackChunkName: "not-found-page" */)
-);
-const MovieDetailsPage = lazy(() =>
-  import(
-    "./pages/MovieDetailsPage" /* webpackChunkName: "movies-details-page" */
-  )
-);
 
 function App() {
   return (
@@ -24,10 +11,9 @@ function App() {
       <AppBar />
       <Suspense fallback={<h1>Загружаем...</h1>}>
         <Switch>
-          <Route exact path={routes.home} component={Home} />
-          <Route exact path={routes.movies} component={Movies} />
-          <Route path={routes.moviesDetails} component={MovieDetailsPage} />
-          <Route component={NotFoundPage} />
+          {appRoutes.map(({ path, exact, component }) => (
+            <Route exact={exact} path={path} component={component} key={path} />
+          ))}
         </Switch>
       </Suspense>
     </>

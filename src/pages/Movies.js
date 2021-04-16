@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import MovieList from "../Component/MovieList/MovieList";
 import { fetchMoviesSearchApi } from "../services/movies-api";
+import style from "./Movies.module.css";
 
 class Movies extends Component {
   state = {
@@ -38,9 +39,11 @@ class Movies extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className={style.form}>
           <input onChange={this.handleChange} value={this.state.query} />
-          <button type="submit"> Search</button>
+          <button type="submit" className={style.button}>
+            Search
+          </button>
         </form>
         {this.state.movies !== undefined && (
           <MovieList movies={this.state.movies} search={this.state.query} />

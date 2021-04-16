@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { fetchMoviesTrendingApi } from "../services/movies-api";
 import MovieList from "../Component/MovieList/MovieList";
+import style from "./Home.module.css";
 
 class Home extends Component {
   state = {
@@ -15,7 +16,7 @@ class Home extends Component {
   render() {
     return (
       <>
-        <h2> Trending today</h2>
+        <h2 className={style.title}> Trending today</h2>
         {this.state.movies !== null && <MovieList movies={this.state.movies} />}
       </>
     );
