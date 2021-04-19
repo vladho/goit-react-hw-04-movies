@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { Route } from "react-router"
 import { NavLink } from "react-router-dom"
 import { pathName } from "../../routes/appRoutes"
@@ -7,7 +7,6 @@ import Reviews from "../Reviews/Reviews"
 import style from "./MovieDetailsPageInfo.module.css"
 
 const MovieDetailsPageInfo = ({ movie, path, url, popularity, genres, handleGoBack, location, match }) => {
-  console.log(location)
   return (
     <div className={style.block}>
       <button type="button" onClick={handleGoBack} className={style.button}>

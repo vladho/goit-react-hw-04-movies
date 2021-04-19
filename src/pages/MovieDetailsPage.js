@@ -23,7 +23,9 @@ class MovieDetailsPage extends Component {
 
   componentDidMount() {
     const moveiId = this.props.match.params
-    fetchMoviesDetailsApi(moveiId).then((response) => this.setState({ movie: response.data }))
+    fetchMoviesDetailsApi(moveiId)
+      .then((response) => this.setState({ movie: response.data }))
+      .catch((error) => console.log(error))
   }
   render() {
     const movie = this.state.movie

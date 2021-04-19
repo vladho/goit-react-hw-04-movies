@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom"
 import MoviePrewiev from "../MoviePrewiev/MoviePrewiev"
 import style from "./MovieList.module.css"
 
-const MovieList = ({ movies, location, value, handleSubmit, handleChange }) => {
+const MovieList = ({ movies, location }) => {
   return (
     <>
       <ul className={style.list}>

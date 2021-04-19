@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import MovieList from "../Component/MovieList/MovieList"
+
 import MoviesSearch from "../Component/MoviesSearch/MoviesSearch"
 import { fetchMoviesSearchApi } from "../services/movies-api"
 
