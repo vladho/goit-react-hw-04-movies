@@ -1,10 +1,6 @@
 import React, { Component } from "react"
-// import { Route } from "react-router"
-// import { NavLink } from "react-router-dom"
-// import Cast from "../Component/Cast/Cast"
-// import Reviews from "../Component/Reviews/Reviews"
 import { fetchMoviesDetailsApi } from "../services/movies-api"
-// import style from "./MovieDetailsPage.module.css"
+
 import { pathName } from "../routes/appRoutes"
 import MovieDetailsPageInfo from "../Component/MovieDetailsPageInfo/MovieDetailsPageInfo"
 

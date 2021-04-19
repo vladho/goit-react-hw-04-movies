@@ -31,7 +31,7 @@ class MoviesPage extends Component {
 
   fetchSearchApi = () => {
     const search = this.props.location.search.slice(7)
-    fetchMoviesSearchApi(search).then((responce) => this.setState({ movies: [...responce.data.results] }))
+    fetchMoviesSearchApi(search).then((responce) => this.setState({ movies: [...responce.data.results] })).catch(error=>console.log(error))
   }
   render() {
     return (
@@ -39,7 +39,6 @@ class MoviesPage extends Component {
         <MoviesSearch handleSubmit={this.handleSubmit} handleChange={this.handleChange} movies={this.state.movies} value={this.state.query} />
       </>
     )
-    // return <>{this.state.movies !== undefined && <MovieList handleSubmit={this.handleSubmit} handleChange={this.handleChange} movies={this.state.movies} value={this.state.query} />}</>
   }
 }
 
