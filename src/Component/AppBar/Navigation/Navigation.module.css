@@ -5,6 +5,15 @@
   /* margin-left: 15px; */
 }
 
-.item {
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.item:last-child {
   margin-left: 15px;
+}
+
+.active {
+  color: blue;
 }
